@@ -10,5 +10,5 @@
       debug:
         var: my_json_contents
     - name: Ping each IP
-      ping: "{{ item.IP }}"
+      command: "ping -c 1 -W 1 {{ item.IP }}"
       with_items: "{{ my_json_contents }}"
