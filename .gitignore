@@ -1,0 +1,3 @@
+*.retry
+.idea/
+ansible-parse-json-and-loop.iml

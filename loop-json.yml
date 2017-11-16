@@ -1,0 +1,14 @@
+---
+
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Read a json file
+      set_fact:
+        my_json_contents: "{{ lookup('file', './ips.json') }}"
+    - name: What did we read?
+      debug:
+        var: my_json_contents
+    - name: Ping each IP
+      ping: "{{ item.IP }}"
+      with_items: "{{ my_json_contents }}"
